@@ -14,6 +14,8 @@ class MessagesController < ApplicationController
 		}
 	end
 
+	private
+
 	def error_message
 		render json: {
 			"err_msg": "Message not found"
