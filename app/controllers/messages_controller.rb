@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 	rescue_from ActiveRecord::RecordNotFound, with: :error_message
 	def create
-		message = Message.create(content: params[:message])
+		message = Message.create(message_params)
 		render json: {
 			digest: message.digest
 		}
@@ -20,5 +20,9 @@ class MessagesController < ApplicationController
 		render json: {
 			"err_msg": "Message not found"
 		}, status: :not_found
+	end
+
+	def message_params
+		params.require(:message).permit(:content)
 	end
 end
