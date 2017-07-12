@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706235200) do
+ActiveRecord::Schema.define(version: 20170712164042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170706235200) do
     t.text     "digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["digest"], name: "index_messages_on_digest", using: :btree
   end
 
 end
